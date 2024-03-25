@@ -11,10 +11,6 @@ public class BookRTO {
     private String author;
     private String isbn;
 
-    public BookRTO(Book book){
-
-    }
-
     public BookRTO(Book book) {
         this.title = book.getTitle();
         this.author = book.getAuthor();
