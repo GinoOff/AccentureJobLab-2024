@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "LIBRO")
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "TITOLO")
@@ -23,8 +23,10 @@ public class Book {
     @Column(name = "ISBN")
     private String isbn;
 
-    public Book(BookTO){
-        this.titolo = b
+    public Book(BookTO book){
+        this.titolo = book.getTitle();
+        this.autore = book.getAuthor();
+        this.isbn = book.getIsbn();
     }
 
 }

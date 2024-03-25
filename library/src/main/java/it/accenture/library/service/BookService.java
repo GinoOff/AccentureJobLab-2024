@@ -27,6 +27,6 @@ public class BookService {
 
             booksRTO.add(bookRTO);
         }
-        return null;
+        return booksRTO;
     }
 }

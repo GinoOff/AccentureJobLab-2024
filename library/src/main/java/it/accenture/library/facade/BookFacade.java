@@ -14,7 +14,7 @@ public class BookFacade {
     private BookService bookService;
 
     public List<BookRTO> findAll(){
-        return new ResponseEntity<>() List<BookRTO> books = bookService.findAllBooks();
+        return bookService.findAllBooks();
 
     }
 }

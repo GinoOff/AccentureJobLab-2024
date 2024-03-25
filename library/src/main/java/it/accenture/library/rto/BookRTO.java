@@ -15,7 +15,9 @@ public class BookRTO {
 
     }
 
-    public BookRTO() {
-
+    public BookRTO(Book book) {
+        this.title = book.getTitle();
+        this.author = book.getAuthor();
+        this.isbn = book.getIsbn();
     }
 }
