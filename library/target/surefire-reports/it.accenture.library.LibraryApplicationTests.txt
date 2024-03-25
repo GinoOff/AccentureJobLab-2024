@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: it.accenture.library.LibraryApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.959 s - in it.accenture.library.LibraryApplicationTests
