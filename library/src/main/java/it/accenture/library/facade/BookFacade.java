@@ -17,4 +17,8 @@ public class BookFacade {
         return bookService.findAllBooks();
 
     }
+
+    public BookRTO findAllBookById(long id){
+        return bookService.findAllBookById(id);
+    }
 }

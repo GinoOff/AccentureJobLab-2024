@@ -30,7 +30,10 @@ public class BookService {
         return booksRTO;
     }
 
-    public BookRTO findAllBookById(){
-        return null;
+    public BookRTO findAllBookById(long id){
+        bookRepository.findBookById(id);
+        return new BookRTO(book);
     }
+
+
 }

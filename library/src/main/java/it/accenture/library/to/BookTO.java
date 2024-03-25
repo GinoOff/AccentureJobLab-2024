@@ -11,8 +11,32 @@ public class BookTO {
     private String author;
     private String isbn;
     public BookTO(Book book) {
-        this.title = book.getTitle();
-        this.author = book.getAuthor();
+        this.title = book.getTitolo();
+        this.author = book.getAutore();
         this.isbn = book.getIsbn();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 }
