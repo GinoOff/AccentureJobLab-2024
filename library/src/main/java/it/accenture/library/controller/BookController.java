@@ -26,6 +26,6 @@ public class BookController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> findBookById(@PathVariable long id){
-        return new ResponseEntity<>(BookFacade.findAll(id), HttpStatus.OK)
+        return new ResponseEntity<>(BookFacade.findAll(id), HttpStatus.OK);
     }
 }

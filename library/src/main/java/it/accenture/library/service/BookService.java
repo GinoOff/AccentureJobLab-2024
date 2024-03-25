@@ -29,4 +29,8 @@ public class BookService {
         }
         return booksRTO;
     }
+
+    public BookRTO findAllBookById(){
+        return null;
+    }
 }
