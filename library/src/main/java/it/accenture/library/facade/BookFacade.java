@@ -26,5 +26,9 @@ public class BookFacade {
         return new BookRTO(book);
     }
 
-
+    public Object saveBook(BookTO book){
+        Book bookToSave = new Book(book);
+        Long id = bookRepository.save(bookToSave).getId();
+        return id;
+    }
 }

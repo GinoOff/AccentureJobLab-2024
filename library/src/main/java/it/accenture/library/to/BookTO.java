@@ -2,11 +2,15 @@ package it.accenture.library.to;
 
 import it.accenture.library.entity.Book;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
+
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 public class BookTO {
+    @NotNull
     private String title;
     private String author;
     private String isbn;

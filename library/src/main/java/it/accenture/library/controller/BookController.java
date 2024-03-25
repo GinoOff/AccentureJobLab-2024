@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.GeneratedValue;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/books")
@@ -23,7 +24,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> findBookById(@PathVariable long id){
+    public ResponseEntity<Object> findBookById(@PathVariable Long id){
         if(id == null){
             return new ResponseEntity<>("l'id non può essere Null", HttpStatus.BAD_REQUEST);
         }
@@ -31,7 +32,7 @@ public class BookController {
     }
 
     @GetMapping("/save")
-    public ResponseEntity<Object> saveBooks(@RequestBody BookTO book){
-        return  new ResponseEntity<>(BookFacade.saveBooks)
+    public ResponseEntity<Object> saveBooks(@Valid @RequestBody BookTO book){
+        return  new ResponseEntity<>(BookFacade.saveBook(book), HttpStatus.OK);
     }
 }
