@@ -4,6 +4,7 @@ package it.accenture.library.service;
 import it.accenture.library.entity.Book;
 import it.accenture.library.repository.BookRepository;
 import it.accenture.library.rto.BookRTO;
+import it.accenture.library.to.BookTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,8 @@ public class BookService {
 
         for (Book book : books){
             BookRTO bookRTO = new BookRTO();
-            BookRTO.setTitle(book.getTitle());
-            BookRTO.setAuthor(book.getAuthor());
+            BookRTO.setTitle(book.getTitolo());
+            BookRTO.setAuthor(book.getAutore());
             BookRTO.setIsbn(book.getIsbn());
 
             booksRTO.add(bookRTO);
@@ -36,4 +37,9 @@ public class BookService {
     }
 
 
+    public Object saveBook(BookTO book){
+        Book bookToSave = new Book(book);
+        Long id = bookRepository.save(bookToSave).getId();
+        return id;
+    }
 }

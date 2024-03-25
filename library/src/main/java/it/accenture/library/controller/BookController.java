@@ -2,13 +2,11 @@ package it.accenture.library.controller;
 
 import it.accenture.library.facade.BookFacade;
 import it.accenture.library.repository.BookRepository;
+import it.accenture.library.to.BookTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.GeneratedValue;
 
@@ -26,6 +24,14 @@ public class BookController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> findBookById(@PathVariable long id){
+        if(id == null){
+            return new ResponseEntity<>("l'id non può essere Null", HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(BookFacade.findAllBookById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/save")
+    public ResponseEntity<Object> saveBooks(@RequestBody BookTO book){
+        return  new ResponseEntity<>(BookFacade.saveBooks)
     }
 }

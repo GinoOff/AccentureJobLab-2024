@@ -1,7 +1,10 @@
 package it.accenture.library.facade;
 
+import it.accenture.library.entity.Book;
+import it.accenture.library.repository.BookRepository;
 import it.accenture.library.rto.BookRTO;
 import it.accenture.library.service.BookService;
+import it.accenture.library.to.BookTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -19,6 +22,9 @@ public class BookFacade {
     }
 
     public BookRTO findAllBookById(long id){
-        return bookService.findAllBookById(id);
+        Book book = bookService.findAllBookById(id);
+        return new BookRTO(book);
     }
+
+
 }
