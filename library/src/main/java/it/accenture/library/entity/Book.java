@@ -15,51 +15,23 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "TITOLO")
-    private String titolo;
+    @Column(name = "TITLE")
+    private String title;
 
     @Column(name = "AUTORE")
-    private String autore;
+    private String author;
 
     @Column(name = "ISBN")
     private String isbn;
 
     public Book(BookTO book){
-        this.titolo = book.getTitle();
-        this.autore = book.getAuthor();
+        this.title = book.getTitle();
+        this.author = book.getAuthor();
         this.isbn = book.getIsbn();
     }
 
+    public Book(){}
 
-    public String getTitolo() {
-        return titolo;
-    }
 
-    public void setTitolo(String titolo) {
-        this.titolo = titolo;
-    }
 
-    public String getAutore() {
-        return autore;
-    }
-
-    public void setAutore(String autore) {
-        this.autore = autore;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 }

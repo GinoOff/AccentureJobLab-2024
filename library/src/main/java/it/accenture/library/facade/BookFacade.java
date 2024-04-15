@@ -11,24 +11,21 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+@Component //tutti i component in funzione puteranno alla stessa porzione di memoria
 public class BookFacade {
     @Autowired
     private BookService bookService;
 
-    public List<BookRTO> findAll(){
+    public List<BookRTO> findAllBooks(){
         return bookService.findAllBooks();
 
     }
 
     public BookRTO findAllBookById(long id){
-        Book book = bookService.findAllBookById(id);
-        return new BookRTO(book);
+        return bookService.findAllBookById(id);
     }
 
-    public Object saveBook(BookTO book){
-        Book bookToSave = new Book(book);
-        Long id = bookRepository.save(bookToSave).getId();
-        return id;
+    public Long addBook(BookTO bookTo){
+        return bookService.addBook(bookTo);
     }
 }

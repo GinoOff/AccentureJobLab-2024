@@ -1,7 +1,10 @@
 package it.accenture.library.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import it.accenture.library.facade.BookFacade;
 import it.accenture.library.repository.BookRepository;
+import it.accenture.library.service.BookService;
 import it.accenture.library.to.BookTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,16 +14,16 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.GeneratedValue;
 import javax.validation.Valid;
 
-@RestController
+@RestController //si occupa di captare richieste REST
 @RequestMapping("/books")
 public class BookController {
 
     @Autowired
-    private BookFacade BookFacade;
+    private BookFacade bookFacade;
 
     @GetMapping("/all")
     public ResponseEntity<Object> findAll(){
-        return new ResponseEntity<>(BookFacade.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(bookFacade.findAllBooks(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -28,11 +31,15 @@ public class BookController {
         if(id == null){
             return new ResponseEntity<>("l'id non può essere Null", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(BookFacade.findAllBookById(id), HttpStatus.OK);
+        return new ResponseEntity<>(bookFacade.findAllBookById(id), HttpStatus.OK);
     }
+    @PostMapping("/")
+    @Operation(description = "Aggiungi un libro a database", responses = {
+            @ApiResponse(responseCode = "200", description = "Libro aggiunto correttamente")
+    })
 
     @GetMapping("/save")
     public ResponseEntity<Object> saveBooks(@Valid @RequestBody BookTO book){
-        return  new ResponseEntity<>(BookFacade.saveBook(book), HttpStatus.OK);
+        return  new ResponseEntity<>(bookFacade.addBook(book), HttpStatus.OK);
     }
 }
