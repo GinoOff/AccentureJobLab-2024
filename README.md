@@ -1,6 +1,6 @@
 # Accenture JobLab project
 
-Questo rappresenta la simulazione di una libreria. Il rpgetto è stato realizzato con Java e Springboot e per il database è stato creto mediante H2.
+Questo rappresenta la simulazione di una libreria. Il prgetto è stato realizzato con Java e Springboot e per il database è stato creato mediante H2.
 Permette di:
 - [x] Inserirei un libro con autore.
 - [x] Rimuovere il libro.
