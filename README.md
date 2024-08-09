@@ -7,4 +7,4 @@ Permette di:
 - [x] Prendere in prestito il libro.
 
 > [!IMPORTANT]
-> Questo progetto è stato relizzato per un progetto PCTO scolastico nell'A.S. 2023/2024 in collbaorazione con l' I.I.S. Michele Giua e la multinazionale Accenture.
+> Questo progetto è stato relizzato per un progetto PCTO scolastico nell'A.S. 2023/2024 in collaborazione con l' I.I.S. Michele Giua e la multinazionale Accenture.
